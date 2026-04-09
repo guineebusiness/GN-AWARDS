@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Guinée Business Excellence Awards 2026 — Le Label Officiel de l'Élite Économique Guinéenne. 15 Septembre 2026, Conakry.">
+<meta property="og:title" content="GBEA 2026 — Guinée Business Excellence Awards">
+<meta property="og:description" content="Le Sommet des Décideurs — Célébrer les Bâtisseurs, Inspirer l'Avenir.">
+<meta name="theme-color" content="#050505">
+<title>GBEA 2026 — Guinée Business Excellence Awards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ─────────────────────────────────────
+   TOKENS & RESET
+───────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --g: #D4AF37;
+  --g2: #B8960C;
+  --g3: #F0D060;
+  --g-dim: rgba(212,175,55,.12);
+  --g-glow: rgba(212,175,55,.06);
+  --ink: #050505;
+  --ink2: #0C0C0C;
+  --ink3: #141414;
+  --ink4: #1E1E1E;
+  --ink5: #282828;
+  --cream: #F0EAD8;
+  --grey: #6A6A6A;
+  --grey2: #444;
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'DM Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(.22,.68,0,1.2);
+  --ease2: cubic-bezier(.25,.46,.45,.94);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--body);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* Custom cursor */
+*, a, button { cursor: none !important; }
+
+#cursor {
+  width: 8px; height: 8px;
+  background: var(--g);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform .15s, width .3s var(--ease), height .3s var(--ease), background .3s;
+}
+#cursor.big {
+  width: 44px; height: 44px;
+  background: transparent;
+  border: 1px solid var(--g);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--g2); }
+
+/* Selection */
+::selection { background: var(--g); color: var(--ink); }
+
+/* ─── UTILITIES ─── */
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+.section { padding: clamp(4rem, 10vw, 9rem) 0; }
+
+.eyebrow {
+  display: block;
+  font-size: .6rem; font-weight: 500;
+  letter-spacing: .5em; text-transform: uppercase;
+  color: var(--g); margin-bottom: 1.2rem;
+}
+.display {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 900; line-height: .9;
+  letter-spacing: -.02em; color: #fff;
+}
+.display em { font-style: italic; color: var(--g); font-weight: 400; }
+
+.h2 {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-weight: 700; line-height: 1.05; color: #fff;
+}
+.h2 em { color: var(--g); font-style: italic; font-weight: 400; }
+
+.rule { width: 2rem; height: 1px; background: var(--g); margin: 1.5rem 0; }
+.rule.c { margin: 1.5rem auto; }
+
+.muted { color: var(--grey); font-size: .93rem; line-height: 1.85; }
+
+/* ─── REVEAL ─── */
+.r {
+  opacity: 0; transform: translateY(2rem);
+  transition: opacity .85s var(--ease2), transform .85s var(--ease2);
+}
+.r.show { opacity: 1; transform: none; }
+.r.d1 { transition-delay: .1s; }
+.r.d2 { transition-delay: .2s; }
+.r.d3 { transition-delay: .3s; }
+.r.d4 { transition-delay: .4s; }
+
+/* ─────────────────────────────────────
+   NAV
+───────────────────────────────────── */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 800;
+  padding: 1.5rem clamp(1.2rem, 4vw, 3rem);
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .4s, padding .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+#nav.stuck {
+  background: rgba(5,5,5,.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: rgba(212,175,55,.12);
+  padding-top: 1rem; padding-bottom: 1rem;
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.15rem; font-weight: 700; color: var(--g);
+  letter-spacing: .05em;
+  display: flex; align-items: baseline; gap: .3rem;
+}
+.nav-logo span { color: rgba(240,234,216,.5); font-weight: 300; font-size: .85rem; }
+
+.nav-links {
+  display: flex; align-items: center; gap: 2.2rem;
+}
+.nav-links a {
+  font-size: .62rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(240,234,216,.55); transition: color .25s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; bottom: -.2rem;
+  width: 0; height: 1px; background: var(--g);
+  transition: width .3s var(--ease2);
+}
+.nav-links a:hover { color: var(--g); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-btn {
+  font-size: .6rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  border: 1px solid rgba(212,175,55,.4); color: var(--g);
+  padding: .6rem 1.5rem; background: transparent;
+  transition: all .3s; display: inline-block;
+}
+.nav-btn:hover { background: var(--g); color: var(--ink); }
+
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; padding: 4px;
+}
+.hamburger span { width: 22px; height: 1px; background: var(--cream); display: block; transition: .3s; }
+
+#mob-nav {
+  display: none; position: fixed; inset: 0; background: var(--ink);
+  z-index: 700; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2.5rem;
+  opacity: 0; transition: opacity .35s;
+}
+#mob-nav.on { display: flex; opacity: 1; }
+#mob-nav a {
+  font-family: var(--serif); font-size: clamp(2rem, 8vw, 3rem);
+  color: #fff; font-weight: 400;
+  transition: color .25s;
+}
+#mob-nav a:hover { color: var(--g); }
+#mob-close {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  background: none; border: 1px solid rgba(212,175,55,.3);
+  color: var(--g); font-size: 1.1rem;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ─────────────────────────────────────
+   TICKER
+───────────────────────────────────── */
+.ticker-bar {
+  position: relative; z-index: 1;
+  margin-top: 4.5rem;
+  background: var(--g);
+  overflow: hidden; padding: .6rem 0;
+}
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ticker-inner {
+  display: flex; white-space: nowrap;
+  animation: tick 28s linear infinite;
+}
+.ticker-item {
+  display: flex; align-items: center; gap: 2rem;
+  padding: 0 2rem;
+  font-size: .58rem; font-weight: 500; letter-spacing: .35em;
+  text-transform: uppercase; color: var(--ink);
+}
+.ticker-dot { width: 3px; height: 3px; background: rgba(5,5,5,.35); border-radius: 50%; flex-shrink: 0; }
+
+/* ─────────────────────────────────────
+   HERO
+───────────────────────────────────── */
+#home {
+  position: relative; min-height: 100vh;
+  display: grid; align-items: end;
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&q=85') center 35% / cover;
+  filter: brightness(.22) saturate(.55);
+  transform: scale(1.04); transition: transform 8s ease-out;
+}
+.hero-bg.loaded { transform: scale(1); }
+
+/* Noise grain overlay */
+.hero-grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  pointer-events: none; opacity: .6;
+}
+
+.hero-vignette {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, var(--ink) 0%, rgba(5,5,5,.55) 45%, rgba(5,5,5,.05) 100%),
+    linear-gradient(to right, rgba(5,5,5,.7) 0%, transparent 60%);
+}
+
+/* Gold grid */
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(212,175,55,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,.035) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.hero-content {
+  position: relative; z-index: 2; width: 100%;
+}
+
+.hero-live {
+  display: inline-flex; align-items: center; gap: .7rem;
+  border: 1px solid rgba(212,175,55,.3);
+  padding: .45rem 1.1rem; margin-bottom: 2.5rem;
+  font-size: .58rem; font-weight: 500; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--g);
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+.hero-live-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--g);
+  animation: blink 2.2s ease-in-out infinite;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 10vw, 9.5rem);
+  font-weight: 900; line-height: .88;
+  letter-spacing: -.02em; color: #fff;
+  margin-bottom: 1rem;
+}
+.hero-title em { color: var(--g); font-style: italic; font-weight: 400; }
+
+.hero-sub {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 400; font-style: italic;
+  color: rgba(240,234,216,.5); margin-bottom: 2.8rem;
+  letter-spacing: .03em;
+}
+
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn-g {
+  display: inline-flex; align-items: center; gap: .7rem;
+  background: var(--g); color: var(--ink);
+  font-size: .62rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  padding: 1rem 2rem; border: none; position: relative; overflow: hidden;
+  transition: box-shadow .3s;
+}
+.btn-g::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,255,255,.15); opacity: 0; transition: opacity .3s;
+}
+.btn-g:hover { box-shadow: 0 0 40px rgba(212,175,55,.35); }
+.btn-g:hover::before { opacity: 1; }
+.btn-g svg { width: 13px; height: 13px; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: .7rem;
+  border: 1px solid rgba(240,234,216,.2); color: rgba(240,234,216,.65);
+  font-size: .62rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  padding: 1rem 2rem; transition: .3s; background: transparent;
+}
+.btn-ghost:hover { border-color: var(--g); color: var(--g); }
+
+.hero-counts {
+  display: flex; gap: clamp(1.5rem, 5vw, 4rem);
+  margin-top: 4rem; padding-top: 2rem;
+  border-top: 1px solid rgba(212,175,55,.15);
+  flex-wrap: wrap;
+}
+.hero-count-n {
+  font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900; color: var(--g); line-height: 1;
+}
+.hero-count-n sup { font-size: 40%; vertical-align: super; }
+.hero-count-l {
+  font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--grey); margin-top: .3rem;
+}
+
+/* ─────────────────────────────────────
+   VISION
+───────────────────────────────────── */
+#vision { background: var(--ink2); }
+
+.vision-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 7vw, 6rem);
+  align-items: center;
+}
+
+.vision-imgs { position: relative; }
+.vision-img1 {
+  width: 100%; aspect-ratio: 3/4;
+  object-fit: cover;
+  filter: brightness(.8) saturate(.75);
+}
+.vision-img2 {
+  position: absolute; bottom: -2.5rem; right: -2rem;
+  width: 55%; aspect-ratio: 1/1;
+  object-fit: cover; object-position: center top;
+  border: 4px solid var(--ink2);
+  filter: brightness(.85) saturate(.8);
+}
+.vision-tag {
+  position: absolute; top: 2rem; left: -1rem;
+  background: var(--g); color: var(--ink);
+  font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  padding: .7rem 1rem;
+  writing-mode: vertical-rl; text-orientation: mixed;
+}
+
+.vision-text {}
+.vision-pillars {
+  margin-top: 2.8rem;
+  border-top: 1px solid rgba(212,175,55,.1);
+}
+.vp {
+  display: flex; gap: 1.4rem; align-items: flex-start;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(212,175,55,.08);
+  transition: background .25s;
+}
+.vp:hover { padding-left: .5rem; }
+.vp-n {
+  font-family: var(--serif); font-size: 2.5rem; font-weight: 900;
+  color: rgba(212,175,55,.15); line-height: 1; min-width: 2.5rem; flex-shrink: 0;
+}
+.vp-t {
+  font-size: .65rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--g); margin-bottom: .35rem;
+}
+.vp-d { font-size: .88rem; color: var(--grey); line-height: 1.75; }
+
+/* ─────────────────────────────────────
+   AUDIT
+───────────────────────────────────── */
+#audit { background: var(--ink); position: relative; overflow: hidden; }
+
+.audit-word {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: clamp(8rem, 25vw, 24rem);
+  font-weight: 900; color: rgba(212,175,55,.025);
+  pointer-events: none; user-select: none;
+  letter-spacing: -.05em;
+}
+
+.audit-head {
+  text-align: center; max-width: 42rem; margin: 0 auto clamp(3rem, 6vw, 5rem);
+  position: relative; z-index: 2;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: rgba(212,175,55,.1);
+  position: relative; z-index: 2;
+}
+.step {
+  background: var(--ink); padding: 2.5rem;
+  position: relative; overflow: hidden;
+  transition: background .3s;
+}
+.step:hover { background: var(--ink3); }
+.step-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--g), var(--g2));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .5s var(--ease2);
+}
+.step:hover .step-bar { transform: scaleX(1); }
+.step-n {
+  font-family: var(--serif); font-size: 5rem; font-weight: 900;
+  color: rgba(212,175,55,.07); line-height: 1; margin-bottom: .5rem;
+}
+.step-t {
+  font-size: .63rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--g); margin-bottom: .8rem;
+}
+.step-d { font-size: .88rem; color: var(--grey); line-height: 1.8; }
+
+.crit {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem; margin-top: clamp(3rem, 6vw, 5rem);
+  position: relative; z-index: 2;
+}
+.crit-c {
+  padding: 2rem; border: 1px solid rgba(212,175,55,.1); text-align: center;
+  transition: border-color .3s, transform .3s var(--ease);
+}
+.crit-c:hover { border-color: rgba(212,175,55,.4); transform: translateY(-3px); }
+.crit-ico { font-size: 2rem; margin-bottom: 1rem; display: block; }
+.crit-t {
+  font-size: .62rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--g); margin-bottom: .6rem;
+}
+.crit-d { font-size: .83rem; color: var(--grey); line-height: 1.65; }
+
+/* ─────────────────────────────────────
+   CATÉGORIES
+───────────────────────────────────── */
+#categories { background: var(--ink2); }
+
+.cat-top {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 2rem; margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  flex-wrap: wrap;
+}
+
+.cat-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1px; background: rgba(212,175,55,.08);
+}
+.cat {
+  background: var(--ink2); padding: 1.6rem 1.3rem;
+  transition: background .3s; position: relative; overflow: hidden;
+}
+.cat::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1.5px;
+  background: var(--g); transform: scaleX(0);
+  transition: transform .35s var(--ease2);
+}
+.cat:hover { background: rgba(212,175,55,.05); }
+.cat:hover::after { transform: scaleX(1); }
+.cat:hover .cat-ico { transform: scale(1.2) rotate(5deg); }
+.cat-ico { font-size: 1.7rem; margin-bottom: .9rem; transition: transform .35s var(--ease); display: block; }
+.cat-num {
+  font-size: .5rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(212,175,55,.35); margin-bottom: .3rem; display: block;
+}
+.cat-name { font-size: .82rem; font-weight: 400; color: var(--cream); line-height: 1.3; }
+.cat-badge {
+  display: inline-block; margin-top: .5rem;
+  font-size: .5rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--g); border: 1px solid rgba(212,175,55,.2); padding: .15rem .5rem;
+}
+
+/* ─────────────────────────────────────
+   SOMMET (GALA)
+───────────────────────────────────── */
+#sommet {
+  position: relative; overflow: hidden;
+  background: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1800&q=85') center / cover;
+}
+.sommet-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(5,5,5,.97) 0%, rgba(5,5,5,.8) 55%, rgba(5,5,5,.95) 100%);
+}
+.sommet-wrap {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: clamp(3rem, 7vw, 6rem); align-items: start;
+  position: relative; z-index: 2;
+}
+
+.moments { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0; }
+.moment {
+  display: flex; align-items: flex-start; gap: 1.3rem;
+  padding: 1.3rem 1rem; border-bottom: 1px solid rgba(212,175,55,.08);
+  transition: background .25s, padding-left .25s;
+}
+.moment:first-child { border-top: 1px solid rgba(212,175,55,.08); }
+.moment:hover { background: rgba(212,175,55,.04); padding-left: 1.5rem; }
+.moment-n {
+  font-family: var(--serif); font-size: 2.2rem; font-weight: 900;
+  color: rgba(212,175,55,.18); line-height: 1; min-width: 2.2rem; flex-shrink: 0;
+}
+.moment-label {
+  font-size: .63rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--g); margin-bottom: .3rem;
+}
+.moment-desc { font-size: .85rem; color: var(--grey); line-height: 1.65; }
+
+.sommet-right { display: flex; flex-direction: column; gap: 1px; }
+.sommet-img {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover;
+  filter: brightness(.65) saturate(.8);
+  transition: filter .5s;
+}
+.sommet-img:hover { filter: brightness(.8) saturate(.9); }
+
+.sommet-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: rgba(212,175,55,.12); margin-top: 1px;
+}
+.ss {
+  background: rgba(5,5,5,.85); padding: 1.5rem;
+  text-align: center; backdrop-filter: blur(10px);
+}
+.ss-n {
+  font-family: var(--serif); font-size: 2.8rem; font-weight: 900;
+  color: var(--g); line-height: 1;
+}
+.ss-l { font-size: .55rem; letter-spacing: .18em; text-transform: uppercase; color: var(--grey); margin-top: .35rem; }
+
+/* ─────────────────────────────────────
+   GALERIE
+───────────────────────────────────── */
+#galerie { background: var(--ink); }
+
+.gal-head { text-align: center; max-width: 36rem; margin: 0 auto clamp(2.5rem, 5vw, 4rem); }
+
+.masonry {
+  columns: 4; column-gap: 4px;
+}
+.masonry-item {
+  break-inside: avoid; margin-bottom: 4px;
+  overflow: hidden; position: relative;
+}
+.masonry-item img {
+  width: 100%; display: block;
+  filter: brightness(.65) saturate(.6);
+  transition: transform .6s var(--ease2), filter .5s;
+}
+.masonry-item:hover img { transform: scale(1.06); filter: brightness(.8) saturate(.85); }
+.masonry-cap {
+  position: absolute; inset: 0;
+  background: linear-gradient(transparent 50%, rgba(5,5,5,.9));
+  display: flex; align-items: flex-end; padding: 1rem;
+  opacity: 0; transition: opacity .4s;
+}
+.masonry-item:hover .masonry-cap { opacity: 1; }
+.masonry-cap span {
+  font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: var(--g);
+}
+
+/* LIGHTBOX */
+#lb {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(5,5,5,.97); align-items: center; justify-content: center;
+  padding: 2rem;
+}
+#lb.on { display: flex; }
+#lb-img { max-height: 88vh; max-width: 88vw; object-fit: contain; }
+#lb-x {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  background: none; border: 1px solid rgba(212,175,55,.3);
+  color: var(--g); width: 42px; height: 42px;
+  font-size: 1rem; display: flex; align-items: center; justify-content: center;
+  transition: .3s;
+}
+#lb-x:hover { background: var(--g); color: var(--ink); }
+
+/* ─────────────────────────────────────
+   PARTENAIRES
+───────────────────────────────────── */
+#partenaires { background: var(--ink2); }
+
+.packs {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: rgba(212,175,55,.1); margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+.pack {
+  background: var(--ink2); position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform .3s var(--ease);
+}
+.pack:hover { transform: translateY(-4px); z-index: 2; }
+
+.pack-head { padding: 2rem 1.8rem; position: relative; }
+.pack.featured .pack-head::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--g), var(--g3));
+}
+.pack-tier {
+  font-size: .55rem; font-weight: 500; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--g); margin-bottom: .8rem; display: flex; align-items: center; gap: .5rem;
+}
+.pack-tier::before { content: '◆'; font-size: .5rem; }
+.pack-name {
+  font-family: var(--serif); font-size: 2rem; font-weight: 700; color: #fff;
+  margin-bottom: .5rem;
+}
+.pack-price {
+  font-size: .82rem; color: var(--grey); padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,.05);
+}
+.pack-price strong { display: block; font-size: 1.25rem; font-weight: 500; color: var(--cream); margin-bottom: .15rem; }
+.pack-ul {
+  padding: 0 1.8rem 1.5rem; flex: 1; list-style: none;
+}
+.pack-ul li {
+  font-size: .82rem; color: var(--grey);
+  padding: .55rem 0; border-bottom: 1px solid rgba(255,255,255,.04);
+  display: flex; gap: .6rem;
+}
+.pack-ul li::before { content: '▸'; color: var(--g); font-size: .65rem; margin-top: .15rem; flex-shrink: 0; }
+.pack-cta {
+  display: block; margin: 0 1.8rem 1.8rem;
+  font-size: .6rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+  border: 1px solid rgba(212,175,55,.3); color: var(--g);
+  padding: .8rem; text-align: center;
+  transition: .3s;
+}
+.pack-cta:hover { background: var(--g); color: var(--ink); border-color: var(--g); }
+
+/* SLOTS */
+.slots-wrap { margin-top: 4rem; display: flex; flex-direction: column; gap: 2.5rem; }
+.slot-label {
+  font-size: .58rem; font-weight: 500; letter-spacing: .4em; text-transform: uppercase;
+  color: var(--g); display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;
+}
+.slot-label::after { content: ''; flex: 1; height: 1px; background: rgba(212,175,55,.12); }
+.slots {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  background: rgba(212,175,55,.06);
+}
+.slot {
+  flex: 1; min-width: 150px; min-height: 80px;
+  background: var(--ink2);
+  border: 1px dashed rgba(212,175,55,.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(212,175,55,.3); transition: .3s;
+}
+.slot:hover { border-color: rgba(212,175,55,.45); color: var(--g); background: rgba(212,175,55,.05); }
+
+/* ─────────────────────────────────────
+   CONTACT
+───────────────────────────────────── */
+#contact { background: var(--ink); position: relative; overflow: hidden; }
+#contact::after {
+  content: ''; position: absolute;
+  right: -15rem; bottom: -15rem;
+  width: 50rem; height: 50rem; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.3fr;
+  gap: clamp(3rem, 7vw, 6rem); align-items: start;
+  position: relative; z-index: 2;
+}
+
+.contact-details { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
+.cd {
+  display: flex; gap: 1.2rem; align-items: flex-start;
+  padding: 1.3rem 0; border-bottom: 1px solid rgba(212,175,55,.08);
+}
+.cd-ico { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
+.cd-lbl {
+  font-size: .57rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--g); margin-bottom: .3rem; display: block;
+}
+.cd-val { font-size: .9rem; color: var(--cream); line-height: 1.6; }
+.cd-val a { color: var(--g); }
+
+/* FORM */
+.contact-form-wrap {
+  background: var(--ink3); padding: clamp(2rem, 4vw, 3rem);
+}
+.cf-head { margin-bottom: 2rem; }
+.frm { display: flex; flex-direction: column; gap: 1rem; }
+.frm-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.fgroup label {
+  display: block; font-size: .58rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--g); margin-bottom: .5rem;
+}
+.fgroup input,
+.fgroup textarea,
+.fgroup select {
+  width: 100%; background: rgba(255,255,255,.035);
+  border: 1px solid rgba(212,175,55,.15); color: var(--cream);
+  padding: .9rem 1rem; font-family: var(--body); font-size: .88rem;
+  transition: border-color .3s; outline: none; appearance: none; -webkit-appearance: none;
+  border-radius: 0;
+}
+.fgroup input::placeholder,
+.fgroup textarea::placeholder { color: var(--grey2); }
+.fgroup input:focus,
+.fgroup textarea:focus,
+.fgroup select:focus { border-color: rgba(212,175,55,.55); }
+.fgroup textarea { height: 100px; resize: vertical; }
+.fgroup select option { background: var(--ink3); color: var(--cream); }
+
+#fmsg {
+  display: none; padding: .9rem; text-align: center;
+  font-size: .82rem; margin-top: .5rem;
+}
+#fmsg.ok { background: rgba(60,200,90,.09); border: 1px solid rgba(60,200,90,.3); color: #4de87a; }
+#fmsg.err { background: rgba(220,60,60,.09); border: 1px solid rgba(220,60,60,.3); color: #ff7070; }
+
+/* domains */
+.domains {
+  background: rgba(212,175,55,.05); border: 1px solid rgba(212,175,55,.18);
+  padding: 1.5rem; margin-top: 2rem;
+}
+.dom-title { font-size: .62rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--g); margin-bottom: 1rem; }
+.dom-list { display: flex; flex-direction: column; gap: .6rem; }
+.dom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .7rem 1rem;
+  background: var(--ink4); font-size: .83rem; color: var(--cream);
+  border-left: 2px solid transparent; transition: .25s;
+}
+.dom:hover { border-left-color: var(--g); }
+.dom.best { border-left-color: var(--g); }
+.dom-badge {
+  font-size: .5rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase;
+  background: var(--g); color: var(--ink); padding: .2rem .6rem;
+}
+
+/* ─────────────────────────────────────
+   FOOTER
+───────────────────────────────────── */
+footer {
+  background: var(--ink3);
+  border-top: 1px solid rgba(212,175,55,.1);
+}
+.foot-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid rgba(212,175,55,.08);
+}
+.foot-brand {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--g); margin-bottom: .8rem;
+}
+.foot-tag { font-size: .83rem; color: var(--grey); line-height: 1.75; max-width: 22ch; }
+.socials { display: flex; gap: .6rem; margin-top: 1.5rem; }
+.soc {
+  width: 34px; height: 34px; border: 1px solid rgba(212,175,55,.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .72rem; font-weight: 600; color: var(--grey);
+  transition: .3s; text-decoration: none;
+}
+.soc:hover { background: var(--g); border-color: var(--g); color: var(--ink); }
+.foot-col-t {
+  font-size: .58rem; font-weight: 500; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--g); margin-bottom: 1.2rem;
+}
+.foot-links { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+.foot-links a { font-size: .83rem; color: var(--grey); transition: color .25s; }
+.foot-links a:hover { color: var(--g); }
+
+.foot-bot {
+  padding: 1.5rem 0;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+}
+.foot-copy { font-size: .68rem; color: var(--grey2); letter-spacing: .05em; }
+.foot-patron { font-size: .63rem; color: var(--grey2); letter-spacing: .06em; }
+
+/* ─────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────── */
+@media (max-width: 1100px) {
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+  .packs { grid-template-columns: repeat(2, 1fr); }
+  .foot-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .masonry { columns: 3; }
+  .crit { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .sommet-wrap { grid-template-columns: 1fr; }
+  .vision-wrap { grid-template-columns: 1fr; }
+  .vision-imgs { display: none; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .nav-links, .nav-btn { display: none; }
+  .hamburger { display: flex; }
+  #cursor { display: none; }
+  *, a, button { cursor: auto !important; }
+}
+@media (max-width: 640px) {
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .masonry { columns: 2; }
+  .packs { grid-template-columns: 1fr; }
+  .hero-counts { flex-direction: column; gap: 1rem; }
+  .frm-row { grid-template-columns: 1fr; }
+  .crit { grid-template-columns: 1fr 1fr; }
+  .foot-top { grid-template-columns: 1fr; }
+  .foot-bot { flex-direction: column; text-align: center; }
+  .sommet-stats { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 380px) {
+  .crit { grid-template-columns: 1fr; }
+  .masonry { columns: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">GBEA <span>2026</span></div>
+  <div class="nav-links">
+    <a href="#home">Accueil</a>
+    <a href="#vision">Vision</a>
+    <a href="#audit">Jury</a>
+    <a href="#categories">Catégories</a>
+    <a href="#partenaires">Partenaires</a>
+    <a href="#contact" class="nav-btn">Devenir Partenaire</a>
+  </div>
+  <button class="hamburger" id="hbg" aria-label="Menu mobile">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mob-nav">
+  <button id="mob-close" aria-label="Fermer">✕</button>
+  <a href="#home" onclick="closeNav()">Accueil</a>
+  <a href="#vision" onclick="closeNav()">Vision</a>
+  <a href="#audit" onclick="closeNav()">Jury & Audit</a>
+  <a href="#categories" onclick="closeNav()">Catégories</a>
+  <a href="#sommet" onclick="closeNav()">Gala</a>
+  <a href="#partenaires" onclick="closeNav()">Partenaires</a>
+  <a href="#contact" onclick="closeNav()">Contact</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-inner" id="tkr">
+    <div class="ticker-item"><div class="ticker-dot"></div>15 Septembre 2026 — Conakry<div class="ticker-dot"></div>200 Décideurs & Investisseurs<div class="ticker-dot"></div>15 Entreprises Primées<div class="ticker-dot"></div>Audit Indépendant Certifié<div class="ticker-dot"></div>Label Officiel de l'Élite Économique<div class="ticker-dot"></div>Haut Patronage CCIAG & APIP Guinée<div class="ticker-dot"></div></div>
+    <div class="ticker-item"><div class="ticker-dot"></div>15 Septembre 2026 — Conakry<div class="ticker-dot"></div>200 Décideurs & Investisseurs<div class="ticker-dot"></div>15 Entreprises Primées<div class="ticker-dot"></div>Audit Indépendant Certifié<div class="ticker-dot"></div>Label Officiel de l'Élite Économique<div class="ticker-dot"></div>Haut Patronage CCIAG & APIP Guinée<div class="ticker-dot"></div></div>
+  </div>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="home">
+  <div class="hero-bg" id="hbg2"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-grid"></div>
+  <div class="container hero-content">
+    <div class="hero-live"><div class="hero-live-dot"></div>Édition Inaugurale — 15 Septembre 2026</div>
+    <h1 class="hero-title">
+      Le Label de<br><em>l'Élite</em><br>Économique<br>Guinéenne
+    </h1>
+    <p class="hero-sub">Célébrer les Bâtisseurs, Inspirer l'Avenir.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-g">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+        Devenir Partenaire
+      </a>
+      <a href="#vision" class="btn-ghost">Découvrir les GBEA</a>
+    </div>
+    <div class="hero-counts">
+      <div><div class="hero-count-n">200<sup>+</sup></div><div class="hero-count-l">Décideurs</div></div>
+      <div><div class="hero-count-n">15</div><div class="hero-count-l">Prix décernés</div></div>
+      <div><div class="hero-count-n">1<sup>ère</sup></div><div class="hero-count-l">Édition nationale</div></div>
+      <div><div class="hero-count-n">6</div><div class="hero-count-l">Moments premium</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ VISION ══════════ -->
+<section id="vision" class="section">
+  <div class="container">
+    <div class="vision-wrap">
+      <div class="vision-imgs r">
+        <img class="vision-img1" src="https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?w=800&q=85" alt="Gala de prestige" loading="lazy">
+        <img class="vision-img2" src="https://images.unsplash.com/photo-1573496799822-a0c48fb71e13?w=500&q=80" alt="Leaders africains" loading="lazy">
+        <div class="vision-tag">GBEA</div>
+      </div>
+      <div>
+        <span class="eyebrow r">Résumé Exécutif</span>
+        <h2 class="h2 r d1">Plus qu'une cérémonie,<br><em>une Institution</em></h2>
+        <div class="rule r d2"></div>
+        <p class="muted r d2">Les GBEA sont l'initiative la plus ambitieuse jamais lancée pour identifier, certifier et célébrer les champions du secteur privé guinéen. Dans le sillage du Projet Simandou, la Guinée a besoin d'une vitrine d'excellence internationale. Les GBEA sont cette vitrine.</p>
+        <div class="vision-pillars">
+          <div class="vp r d2">
+            <div class="vp-n">01</div>
+            <div><div class="vp-t">Le Label</div><div class="vp-d">Certification nationale validée par un processus d'audit indépendant aux standards internationaux ESG.</div></div>
+          </div>
+          <div class="vp r d3">
+            <div class="vp-n">02</div>
+            <div><div class="vp-t">La Plateforme</div><div class="vp-d">Le seul événement guinéen réunissant banques, mines, télécoms, institutions et investisseurs en un soir.</div></div>
+          </div>
+          <div class="vp r d4">
+            <div class="vp-n">03</div>
+            <div><div class="vp-t">L'Héritage</div><div class="vp-d">Le Club des Lauréats GBEA — réseau d'élite actif toute l'année, bien au-delà du soir du gala inaugural.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ AUDIT ══════════ -->
+<section id="audit" class="section">
+  <div class="audit-word">RIGUEUR</div>
+  <div class="container">
+    <div class="audit-head">
+      <span class="eyebrow r">Méthodologie — "Le Sceau de la Rigueur"</span>
+      <h2 class="h2 r d1">Processus Certifié,<br><em>Résultats Incontestables</em></h2>
+      <div class="rule c r d1"></div>
+      <p class="muted r d2" style="margin:0 auto">Un jury indépendant, un audit externe, une totale confidentialité. Aucun partenaire financier n'a accès aux délibérations — jamais.</p>
+    </div>
+    <div class="steps">
+      <div class="step r"><div class="step-bar"></div><div class="step-n">01</div><div class="step-t">Appel à Candidatures</div><div class="step-d">Diffusion nationale 90 jours avant la cérémonie. Accès ouvert et équitable à toutes les entreprises guinéennes éligibles.</div></div>
+      <div class="step r d1"><div class="step-bar"></div><div class="step-n">02</div><div class="step-t">Présélection</div><div class="step-d">Examen rigoureux par le Comité de Sélection sur critères objectifs, mesurables et pondérés.</div></div>
+      <div class="step r d2"><div class="step-bar"></div><div class="step-n">03</div><div class="step-t">Évaluation ESG</div><div class="step-d">Analyse : performance financière, innovation, gouvernance et impact Environnemental, Social, de Gouvernance.</div></div>
+      <div class="step r"><div class="step-bar"></div><div class="step-n">04</div><div class="step-t">Auditions</div><div class="step-d">Présentation orale des finalistes devant un jury de 5 à 9 experts sectoriels et institutionnels indépendants.</div></div>
+      <div class="step r d1"><div class="step-bar"></div><div class="step-n">05</div><div class="step-t">Délibération Secrète</div><div class="step-d">Vote souverain et confidentiel. Séparation totale entre les délibérations et les partenaires financiers.</div></div>
+      <div class="step r d2"><div class="step-bar"></div><div class="step-n">06</div><div class="step-t">Certification Externe</div><div class="step-d">Validation par cabinet d'audit agréé en Guinée. Résultat certifié, incontestable, opposable tiers.</div></div>
+    </div>
+    <div class="crit">
+      <div class="crit-c r"><span class="crit-ico">◆</span><div class="crit-t">Performance</div><div class="crit-d">Croissance du CA, rentabilité, solidité bilancielle et maîtrise des coûts.</div></div>
+      <div class="crit-c r d1"><span class="crit-ico">◈</span><div class="crit-t">Innovation</div><div class="crit-d">Transformation digitale et capacité d'innovation face aux défis du marché guinéen.</div></div>
+      <div class="crit-c r d2"><span class="crit-ico">◉</span><div class="crit-t">Impact ESG</div><div class="crit-d">Standard international prioritaire pour les investisseurs miniers et les partenaires internationaux.</div></div>
+      <div class="crit-c r d3"><span class="crit-ico">◎</span><div class="crit-t">Gouvernance</div><div class="crit-d">Transparence, conformité réglementaire et éthique des affaires dans le contexte guinéen.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CATÉGORIES ══════════ -->
+<section id="categories" class="section">
+  <div class="container">
+    <div class="cat-top">
+      <div>
+        <span class="eyebrow r">15 Prix — Catégories & Naming</span>
+        <h2 class="h2 r d1">Tous les Secteurs<br><em>de l'Excellence</em></h2>
+      </div>
+      <div class="r d2" style="max-width:26rem">
+        <p class="muted">Chaque catégorie offre une opportunité de naming exclusif. Devenez l'ambassadeur de l'excellence dans votre secteur aux yeux des 200 décideurs présents.</p>
+        <div class="rule"></div>
+      </div>
+    </div>
+    <div class="cat-grid">
+      <div class="cat r"><span class="cat-ico">🏆</span><span class="cat-num">01</span><div class="cat-name">Entreprise de l'Année</div><span class="cat-badge">Grand Prix</span></div>
+      <div class="cat r d1"><span class="cat-ico">💡</span><span class="cat-num">02</span><div class="cat-name">Entreprise Innovante</div><span class="cat-badge">Innovation</span></div>
+      <div class="cat r d2"><span class="cat-ico">📈</span><span class="cat-num">03</span><div class="cat-name">PME Performante</div><span class="cat-badge">PME</span></div>
+      <div class="cat r d3"><span class="cat-ico">⛏️</span><span class="cat-num">04</span><div class="cat-name">Secteur Minier</div><span class="cat-badge">Mines</span></div>
+      <div class="cat r d4"><span class="cat-ico">🏦</span><span class="cat-num">05</span><div class="cat-name">Banque & Finance</div><span class="cat-badge">Finance</span></div>
+      <div class="cat r"><span class="cat-ico">📱</span><span class="cat-num">06</span><div class="cat-name">Télécommunications</div><span class="cat-badge">Télécom</span></div>
+      <div class="cat r d1"><span class="cat-ico">🌿</span><span class="cat-num">07</span><div class="cat-name">Responsabilité Sociétale</div><span class="cat-badge">ESG</span></div>
+      <div class="cat r d2"><span class="cat-ico">💼</span><span class="cat-num">08</span><div class="cat-name">Investisseur de l'Année</div><span class="cat-badge">Invest.</span></div>
+      <div class="cat r d3"><span class="cat-ico">🌍</span><span class="cat-num">09</span><div class="cat-name">Champion de l'Export</div><span class="cat-badge">Export</span></div>
+      <div class="cat r d4"><span class="cat-ico">🌾</span><span class="cat-num">10</span><div class="cat-name">Agro-Industrie</div><span class="cat-badge">Agro</span></div>
+      <div class="cat r"><span class="cat-ico">💻</span><span class="cat-num">11</span><div class="cat-name">Technologie & Numérique</div><span class="cat-badge">Tech</span></div>
+      <div class="cat r d1"><span class="cat-ico">🏗️</span><span class="cat-num">12</span><div class="cat-name">BTP & Construction</div><span class="cat-badge">BTP</span></div>
+      <div class="cat r d2"><span class="cat-ico">👥</span><span class="cat-num">13</span><div class="cat-name">Meilleur Employeur</div><span class="cat-badge">RH</span></div>
+      <div class="cat r d3"><span class="cat-ico">👩‍💼</span><span class="cat-num">14</span><div class="cat-name">Leadership Féminin</div><span class="cat-badge">Femmes</span></div>
+      <div class="cat r d4"><span class="cat-ico">⭐</span><span class="cat-num">15</span><div class="cat-name">Prix Spécial du Jury</div><span class="cat-badge">Jury</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SOMMET ══════════ -->
+<section id="sommet" class="section">
+  <div class="sommet-ov"></div>
+  <div class="container">
+    <div class="sommet-wrap">
+      <div>
+        <span class="eyebrow r">Le Gala — 15 Septembre 2026, Conakry</span>
+        <h2 class="h2 r d1">Le Sommet<br><em>des Décideurs</em></h2>
+        <div class="rule r d1"></div>
+        <p class="muted r d2" style="margin-bottom:2rem">200 dirigeants, investisseurs, banquiers, institutionnels. Un soir, un lieu, un label. La soirée économique la plus influente jamais organisée en Guinée.</p>
+        <div class="moments r d2">
+          <div class="moment"><div class="moment-n">01</div><div><div class="moment-label">Tapis Rouge</div><div class="moment-desc">Accueil VIP dans un protocole d'exception. Couverture photo et vidéo nationale.</div></div></div>
+          <div class="moment"><div class="moment-n">02</div><div><div class="moment-label">Dîner Gastronomique</div><div class="moment-desc">200 couverts dans un cadre sophistiqué conçu pour favoriser les échanges stratégiques.</div></div></div>
+          <div class="moment"><div class="moment-n">03</div><div><div class="moment-label">Remise des 15 Prix</div><div class="moment-desc">Cérémonie solennelle de certification et d'honoration des lauréats GBEA 2026.</div></div></div>
+          <div class="moment"><div class="moment-n">04</div><div><div class="moment-label">Discours Institutionnels</div><div class="moment-desc">Personnalités gouvernementales, économiques et diplomatiques de référence.</div></div></div>
+          <div class="moment"><div class="moment-n">05</div><div><div class="moment-label">Performances Artistiques</div><div class="moment-desc">Expression culturelle guinéenne et africaine d'excellence pour enrichir la soirée.</div></div></div>
+          <div class="moment"><div class="moment-n">06</div><div><div class="moment-label">Networking Exclusif</div><div class="moment-desc">L'espace d'échanges le plus stratégique de l'année dans l'économie guinéenne.</div></div></div>
+        </div>
+      </div>
+      <div class="sommet-right r d2">
+        <img class="sommet-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=85" alt="Dîner de gala" loading="lazy">
+        <div class="sommet-stats">
+          <div class="ss"><div class="ss-n">200</div><div class="ss-l">Invités</div></div>
+          <div class="ss"><div class="ss-n">15</div><div class="ss-l">Lauréats</div></div>
+          <div class="ss"><div class="ss-n">6</div><div class="ss-l">Moments</div></div>
+        </div>
+        <img class="sommet-img" src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80" alt="Networking" loading="lazy" style="margin-top:4px">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GALERIE ══════════ -->
+<section id="galerie" class="section">
+  <div class="container">
+    <div class="gal-head">
+      <span class="eyebrow r">Galerie</span>
+      <h2 class="h2 r d1">L'Esprit<br><em>GBEA</em></h2>
+      <div class="rule c r d1"></div>
+    </div>
+  </div>
+  <div class="masonry" style="padding:0 clamp(.6rem,2vw,1.5rem)">
+    <div class="masonry-item r"><img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80" alt="Gala" loading="lazy"><div class="masonry-cap"><span>Gala de prestige</span></div></div>
+    <div class="masonry-item r d1"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80" alt="Networking" loading="lazy"><div class="masonry-cap"><span>Networking d'élite</span></div></div>
+    <div class="masonry-item r d2"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80" alt="Dirigeants" loading="lazy"><div class="masonry-cap"><span>Décideurs africains</span></div></div>
+    <div class="masonry-item r d3"><img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80" alt="Cérémonie" loading="lazy"><div class="masonry-cap"><span>Cérémonie d'excellence</span></div></div>
+    <div class="masonry-item r"><img src="https://images.unsplash.com/photo-1573496799822-a0c48fb71e13?w=600&q=80" alt="Leadership" loading="lazy"><div class="masonry-cap"><span>Leadership féminin</span></div></div>
+    <div class="masonry-item r d1"><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="Conakry" loading="lazy"><div class="masonry-cap"><span>Skyline économique</span></div></div>
+    <div class="masonry-item r d2"><img src="https://images.unsplash.com/photo-1522158637959-30385a09e0da?w=600&q=80" alt="Trophée" loading="lazy"><div class="masonry-cap"><span>Remise de trophée</span></div></div>
+    <div class="masonry-item r d3"><img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?w=600&q=80" alt="Business" loading="lazy"><div class="masonry-cap"><span>Secteur privé guinéen</span></div></div>
+  </div>
+  <!-- LIGHTBOX -->
+  <div id="lb"><img id="lb-img" src="" alt=""><button id="lb-x">✕</button></div>
+</section>
+
+<!-- ══════════ PARTENAIRES ══════════ -->
+<section id="partenaires" class="section">
+  <div class="container">
+    <div style="text-align:center;max-width:44rem;margin:0 auto">
+      <span class="eyebrow r">Opportunités de Partenariat Stratégique</span>
+      <h2 class="h2 r d1">Le Sommet des Décideurs.<br><em>Votre Scène.</em></h2>
+      <div class="rule c r d1"></div>
+      <p class="muted r d2">Le seul endroit en Guinée où se croisent banques, mines, télécoms et autorités publiques. Une place ici n'a pas de prix — mais elle a un tarif.</p>
+    </div>
+
+    <div class="packs">
+      <div class="pack featured r">
+        <div class="pack-head">
+          <div class="pack-tier">Pack Diamant <span style="background:rgba(212,175,55,.15);color:var(--g);font-size:.48rem;padding:.2rem .6rem;letter-spacing:.15em;border:1px solid rgba(212,175,55,.3)">EXCLUSIF</span></div>
+          <div class="pack-name">Diamant</div>
+          <div class="pack-price"><strong>150 000 000 GNF</strong>1 partenaire unique</div>
+        </div>
+        <ul class="pack-ul">
+          <li>Naming officiel de l'événement</li>
+          <li>Discours d'ouverture du gala</li>
+          <li>Logo géant sur scène</li>
+          <li>2 Tables VIP — 20 places</li>
+          <li>Vidéo publicitaire 2 min × 3 diffusions</li>
+          <li>Interview TV nationale dédiée</li>
+          <li>100% des supports de communication</li>
+        </ul>
+        <a href="#contact" class="pack-cta">Réserver ce Pack</a>
+      </div>
+      <div class="pack r d1">
+        <div class="pack-head">
+          <div class="pack-tier">Pack Platine</div>
+          <div class="pack-name">Platine</div>
+          <div class="pack-price"><strong>80 000 000 GNF</strong>Places limitées</div>
+        </div>
+        <ul class="pack-ul">
+          <li>Remise d'un prix phare</li>
+          <li>1 Table VIP — 10 places</li>
+          <li>Branding Tapis Rouge exclusif</li>
+          <li>Passage publicitaire soirée</li>
+          <li>Interview presse dédiée</li>
+          <li>Logo tous supports officiels</li>
+        </ul>
+        <a href="#contact" class="pack-cta">Réserver ce Pack</a>
+      </div>
+      <div class="pack r d2">
+        <div class="pack-head">
+          <div class="pack-tier">Pack Or</div>
+          <div class="pack-name">Or</div>
+          <div class="pack-price"><strong>40 000 000 GNF</strong>Exclusivité sectorielle</div>
+        </div>
+        <ul class="pack-ul">
+          <li>Naming d'une catégorie de prix</li>
+          <li>Remise du prix de votre secteur</li>
+          <li>5 places VIP</li>
+          <li>Branding Zone Networking</li>
+          <li>Logo tous supports officiels</li>
+        </ul>
+        <a href="#contact" class="pack-cta">Réserver ce Pack</a>
+      </div>
+      <div class="pack r d3">
+        <div class="pack-head">
+          <div class="pack-tier">Pack Argent</div>
+          <div class="pack-name">Argent</div>
+          <div class="pack-price"><strong>15 000 000 GNF</strong>Accès institutionnel</div>
+        </div>
+        <ul class="pack-ul">
+          <li>Logo Mur des Partenaires</li>
+          <li>2 invitations VIP</li>
+          <li>Mention communications</li>
+          <li>Statut Partenaire Officiel</li>
+        </ul>
+        <a href="#contact" class="pack-cta">Réserver ce Pack</a>
+      </div>
+    </div>
+
+    <div class="slots-wrap">
+      <div class="r">
+        <div class="slot-label">Partenaires Diamant 2026</div>
+        <div class="slots">
+          <div class="slot" style="border-color:rgba(212,175,55,.4);color:var(--g);font-family:var(--serif);font-size:.9rem">Votre Marque Ici</div>
+          <div class="slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">+ Réserver</div>
+        </div>
+      </div>
+      <div class="r d1">
+        <div class="slot-label">Partenaires Platine</div>
+        <div class="slots">
+          <div class="slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">+ Réserver</div>
+          <div class="slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">+ Réserver</div>
+          <div class="slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">+ Réserver</div>
+        </div>
+      </div>
+      <div class="r d2">
+        <div class="slot-label">Partenaires Or</div>
+        <div class="slots">
+          <div class="slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">+ Réserver</div>
+          <div class="slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">+ Réserver</div>
+          <div class="slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">+ Réserver</div>
+          <div class="slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">+ Réserver</div>
+          <div class="slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">+ Réserver</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow r">Contact & Partenariat</span>
+        <h2 class="h2 r d1">Rejoignez<br><em>l'Excellence</em></h2>
+        <div class="rule r d1"></div>
+        <p class="muted r d2" style="margin-bottom:2rem">Les places stratégiques sont limitées. Plusieurs entreprises leaders ont déjà manifesté leur intérêt. Confirmez votre position avant le <strong style="color:var(--cream)">15 Septembre 2026</strong>.</p>
+        <div class="contact-details r d2">
+          <div class="cd">
+            <div class="cd-ico">✉</div>
+            <div>
+              <span class="cd-lbl">Commissaire Général</span>
+              <div class="cd-val"><strong style="color:#fff">Severin Lamah</strong></div>
+              <div class="cd-val"><a href="mailto:guineebusinessawards126@gmail.com">guineebusinessawards126@gmail.com</a></div>
+              <div class="cd-val"><a href="tel:+224620282612">+224 620 28 26 12</a></div>
+            </div>
+          </div>
+          <div class="cd">
+            <div class="cd-ico">✉</div>
+            <div>
+              <span class="cd-lbl">Responsable Marketing</span>
+              <div class="cd-val"><strong style="color:#fff">Kankou Camara</strong></div>
+              <div class="cd-val"><a href="mailto:kankouc622@gmail.com">kankouc622@gmail.com</a></div>
+              <div class="cd-val"><a href="tel:+224622748629">+224 622 748 629</a></div>
+            </div>
+          </div>
+          <div class="cd">
+            <div class="cd-ico">📍</div>
+            <div>
+              <span class="cd-lbl">Siège Social</span>
+              <div class="cd-val">Commune de Ratoma, Sonfonia</div>
+              <div class="cd-val">Conakry, République de Guinée</div>
+            </div>
+          </div>
+        </div>
+        <div class="domains r d3">
+          <div class="dom-title">Noms de domaine recommandés</div>
+          <div class="dom-list">
+            <div class="dom best"><span>gbea2026.gn</span><span class="dom-badge">Recommandé</span></div>
+            <div class="dom"><span>guineebusinessawards.com</span></div>
+            <div class="dom"><span>gbea-guinee.org</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="r d2">
+        <div class="contact-form-wrap">
+          <div class="cf-head">
+            <span class="eyebrow">Formulaire de Contact</span>
+            <h3 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;color:#fff">Exprimez votre intérêt</h3>
+          </div>
+          <form class="frm" id="frm" novalidate>
+            <div class="frm-row">
+              <div class="fgroup">
+                <label for="fn">Prénom *</label>
+                <input type="text" id="fn" placeholder="Jean" required>
+              </div>
+              <div class="fgroup">
+                <label for="ln">Nom *</label>
+                <input type="text" id="ln" placeholder="Camara" required>
+              </div>
+            </div>
+            <div class="fgroup">
+              <label for="co">Organisation *</label>
+              <input type="text" id="co" placeholder="Nom de votre entreprise" required>
+            </div>
+            <div class="fgroup">
+              <label for="em">Email professionnel *</label>
+              <input type="email" id="em" placeholder="vous@entreprise.com" required>
+            </div>
+            <div class="fgroup">
+              <label for="ph">Téléphone</label>
+              <input type="tel" id="ph" placeholder="+224 _ _ _ _ _ _ _ _">
+            </div>
+            <div class="fgroup">
+              <label for="pk">Pack d'intérêt</label>
+              <select id="pk">
+                <option value="">Choisir un pack...</option>
+                <option>Pack Diamant — 150 000 000 GNF</option>
+                <option>Pack Platine — 80 000 000 GNF</option>
+                <option>Pack Or — 40 000 000 GNF</option>
+                <option>Pack Argent — 15 000 000 GNF</option>
+                <option>Partenariat Sur Mesure</option>
+                <option>Candidature Entreprise</option>
+              </select>
+            </div>
+            <div class="fgroup">
+              <label for="msg">Message</label>
+              <textarea id="msg" placeholder="Précisez votre demande, vos objectifs ou la catégorie de prix souhaitée..."></textarea>
+            </div>
+            <button type="submit" class="btn-g" style="width:100%;justify-content:center;font-size:.65rem;padding:1.1rem">
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" style="width:13px;height:13px"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+              Envoyer ma Demande
+            </button>
+            <div id="fmsg"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">GBEA 2026</div>
+        <div class="foot-tag">Guinée Business Excellence Awards — Célébrer les Bâtisseurs, Inspirer l'Avenir.</div>
+        <div class="socials">
+          <a class="soc" href="https://facebook.com" target="_blank" rel="noopener" title="Facebook">f</a>
+          <a class="soc" href="https://linkedin.com" target="_blank" rel="noopener" title="LinkedIn">in</a>
+          <a class="soc" href="https://twitter.com" target="_blank" rel="noopener" title="X">x</a>
+          <a class="soc" href="https://instagram.com" target="_blank" rel="noopener" title="Instagram">◭</a>
+          <a class="soc" href="https://youtube.com" target="_blank" rel="noopener" title="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <div class="foot-col-t">Navigation</div>
+        <ul class="foot-links">
+          <li><a href="#home">Accueil</a></li>
+          <li><a href="#vision">Vision & Mission</a></li>
+          <li><a href="#audit">Jury & Audit</a></li>
+          <li><a href="#categories">15 Catégories</a></li>
+          <li><a href="#sommet">Gala 2026</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-col-t">Partenariat</div>
+        <ul class="foot-links">
+          <li><a href="#partenaires">Pack Diamant</a></li>
+          <li><a href="#partenaires">Pack Platine</a></li>
+          <li><a href="#partenaires">Pack Or</a></li>
+          <li><a href="#partenaires">Pack Argent</a></li>
+          <li><a href="#contact">Sur Mesure</a></li>
+          <li><a href="#contact">Candidater</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-col-t">Contact</div>
+        <ul class="foot-links">
+          <li><a href="mailto:guineebusinessawards126@gmail.com">guineebusinessawards126@gmail.com</a></li>
+          <li><a href="tel:+224620282612">+224 620 28 26 12</a></li>
+          <li><a href="mailto:kankouc622@gmail.com">kankouc622@gmail.com</a></li>
+          <li><a href="tel:+224622748629">+224 622 748 629</a></li>
+          <li><a href="#contact">Conakry, Guinée</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div class="foot-copy">© 2026 GBEA-PROMO — Tous droits réservés — République de Guinée</div>
+      <div class="foot-patron">Haut Patronage : CCIAG · APIP Guinée · Ministère du Commerce</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ── CURSOR ──
+  var cur = document.getElementById('cursor');
+  if(cur && window.innerWidth > 900){
+    document.addEventListener('mousemove', function(e){
+      cur.style.left = e.clientX + 'px';
+      cur.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a,button,.cat,.step,.pack,.moment,.masonry-item').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ cur.classList.add('big'); });
+      el.addEventListener('mouseleave', function(){ cur.classList.remove('big'); });
+    });
+  }
+
+  // ── NAV ──
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('stuck', window.scrollY > 60);
+  }, {passive:true});
+
+  // ── BURGER ──
+  var hbg = document.getElementById('hbg');
+  var mob = document.getElementById('mob-nav');
+  hbg.addEventListener('click', function(){
+    mob.classList.add('on');
+  });
+  document.getElementById('mob-close').addEventListener('click', function(){
+    mob.classList.remove('on');
+  });
+  window.closeNav = function(){ mob.classList.remove('on'); };
+
+  // ── HERO BG PARALLAX LOAD ──
+  var hbg2 = document.getElementById('hbg2');
+  setTimeout(function(){ if(hbg2) hbg2.classList.add('loaded'); }, 100);
+
+  // ── REVEAL ──
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.r').forEach(function(el){ io.observe(el); });
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var target = document.querySelector(this.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── LIGHTBOX ──
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lb-img');
+  document.querySelectorAll('.masonry-item img').forEach(function(img){
+    img.addEventListener('click', function(){
+      lbImg.src = this.src.replace('w=600','w=1200');
+      lb.classList.add('on');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeLb(){
+    lb.classList.remove('on');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('lb-x').addEventListener('click', closeLb);
+  lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
+
+  // ── FORM ──
+  var frm = document.getElementById('frm');
+  var fmsg = document.getElementById('fmsg');
+  frm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var fn = document.getElementById('fn').value.trim();
+    var em = document.getElementById('em').value.trim();
+    var co = document.getElementById('co').value.trim();
+    if(!fn || !em || !co){
+      fmsg.className = 'err';
+      fmsg.style.display = 'block';
+      fmsg.textContent = 'Veuillez compléter tous les champs obligatoires (*).';
+      return;
+    }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){
+      fmsg.className = 'err';
+      fmsg.style.display = 'block';
+      fmsg.textContent = 'Adresse email invalide.';
+      return;
+    }
+    var btn = frm.querySelector('button[type="submit"]');
+    btn.style.opacity = '.6';
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours...';
+    setTimeout(function(){
+      fmsg.className = 'ok';
+      fmsg.style.display = 'block';
+      fmsg.textContent = 'Merci ' + fn + ' ! Votre demande a été reçue. Notre équipe vous contactera sous 48h.';
+      frm.reset();
+      btn.style.opacity = '1';
+      btn.disabled = false;
+      btn.innerHTML = '<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" style="width:13px;height:13px"><path d="M1 7h12M8 2l5 5-5 5"/></svg> Envoyer ma Demande';
+    }, 1600);
+  });
+
+  // ── ACTIVE NAV LINK ──
+  var sections = document.querySelectorAll('section[id]');
+  var navAs = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY + 120;
+    sections.forEach(function(s){
+      if(y >= s.offsetTop && y < s.offsetTop + s.offsetHeight){
+        navAs.forEach(function(a){
+          a.style.color = a.getAttribute('href') === '#' + s.id ? 'var(--g)' : '';
+        });
+      }
+    });
+  }, {passive:true});
+
+})();
+</script>
+</body>
+</html>
